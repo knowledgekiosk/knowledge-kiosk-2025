@@ -1,0 +1,10 @@
+knowledge-kiosk-server/node_modules/
+README.md
+build/
+dist/
+.env
+*.log
+.git/
+.gitignore/
+.svn/
+node_modules/

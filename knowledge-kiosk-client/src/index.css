@@ -1,0 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+@font-face {
+  font-family: rubik;
+  src: url('./assets/Fonts/Rubik-Black.ttf');
+}
+
+@import "tailwindcss";
+@plugin "daisyui";
+@theme{
+  --font-rubik-black : rubik, 'sans-serif',
+  --font-rubik : Rubik , 'sans-serif'
+}

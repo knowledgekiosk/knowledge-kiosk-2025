@@ -1,0 +1,32 @@
+version: '3.8'
+services:
+  # Backend Service
+  backend:
+    build:
+      context: ./knowledge-kiosk-server
+    ports:
+      - 5001:5000
+    environment:
+      - DB_URL=mongodb://mongo:27017 # Reference to DB_URL from .env file
+      - JWT_SECRET=06afb3893b00fd667e6416b5772a2303406254bcd5fddacd29b26a32fafb5b76331b8eab7e4107a9f290ac7a3ae4768537a33874b60b974f0def2b0e9c803c22  # Reference to JWT_SECRET from .env file
+      - HTTP_PROXY=http://rb-proxy-unix-de01.bosch.com:8080
+      - HTTPS_PROXY=http://rb-proxy-unix-de01.bosch.com:8080
+      - NO_PROXY=localhost,127.0.0.1
+    volumes:
+      - ./knowledge-kiosk-server:/app
+    depends_on:
+      - mongo  
+    devices:
+      - /dev/ttyACM0:/dev/ttyACM0
+
+  # MongoDB Service
+  mongo:
+    image: mongo:latest
+    ports:
+      - 27017:27017
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin  # MongoDB root user
+      MONGO_INITDB_ROOT_PASSWORD: password123  # MongoDB root password
+      MONGO_INITDB_DATABASE: knowledge-kiosk  # MongoDB database
+    volumes:
+      - ./data/db:/data/db  # Persist MongoDB data between restarts
