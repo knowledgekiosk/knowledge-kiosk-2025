@@ -8,5 +8,7 @@
 @plugin "daisyui";
 @theme{
   --font-rubik-black : rubik, 'sans-serif',
-  --font-rubik : Rubik , 'sans-serif'
+}
+@theme{
+  --font-rubik : Rubik, 'sans-serif',
 }

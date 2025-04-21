@@ -1,0 +1,9 @@
+.active-link {
+    background-color: rgb(232, 239, 250);  
+    color: rgb(6, 85, 241);
+  }
+  .inactive-link {
+    background-color:  rgb(232, 239, 250);  
+    color: rgb(1, 1, 20);
+  }
+  
